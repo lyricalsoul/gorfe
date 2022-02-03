@@ -6,6 +6,7 @@ RUN echo "files on /go:" && ls
 
 USER root
 
+RUN apt update -y && apt install libwebp libwebp-dev -y
 RUN mkdir -p /go/app/bin
 RUN cd /go/src && go get -v && go install -v ./... && go build -o /go/app/bin/goapp
 RUN cd /go && ls && cd src && ls
